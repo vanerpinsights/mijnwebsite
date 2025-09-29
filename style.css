@@ -27,8 +27,8 @@ header {
 
 header .logo {
   position: absolute;
-  left: 15%;       /* 25% van schermbreedte */
-  top: -40px;      /* iets naar boven */
+  left: 20%;       /* 20% van schermbreedte */
+  top: -20px;      /* iets naar boven */
   max-width: 30%;
   height: auto;
   max-height: 350px;
