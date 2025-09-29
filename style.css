@@ -18,13 +18,23 @@ header {
 }
 
 header .logo {
-  height: 400px; /* logo groot houden */
+  /*height: 400px; */
   display: block;
   margin: 0 auto;
+  max-width: 90%; /* voorkomt dat logo breder wordt dan scherm */
+  height: auto;    /* laat hoogte automatisch mee schalen */
+  max-height: 350px; /* voorkomt te grote header op laptop */
   /* Verschuiving */
   position: relative; /* nodig voor transform */
   left: -500px;   /* naar links */
   top: 20px;     /* naar beneden */
+}
+
+/* Optioneel: specifieke mobiele aanpassing */
+@media (max-width: 600px) {
+  header .logo {
+    height: 150px; /* kleiner logo op mobiel */
+  }
 }
 
 main {
