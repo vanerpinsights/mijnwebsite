@@ -1,70 +1,68 @@
-body {
-  font-family: Arial, sans-serif;
+/* Basis setup */
+html, body {
+  height: 100%;
   margin: 0;
   padding: 0;
+  font-family: Arial, sans-serif;
   background-color: #f4f4f4;
   color: #333;
 }
 
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Header */
 header {
-  background-color: #3BAF78; /* fallback kleur als afbeelding niet laadt */
+  background-color: #3BAF78;
   background-image: url('Achtergrond.png');
-  background-repeat: no-repeat; /* herhalen uitzetten */
-  background-size: cover;       /* vult de hele header */
-  background-position: center;  /* afbeelding gecentreerd */
-  color: white;
-  padding: 0;                   /* headerhoogte = logohoogte */
-  text-align: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  min-height: 250px; /* zorgt dat header groot genoeg is voor logo en afbeelding */
 }
 
 header .logo {
-  /*height: 400px; */
-  display: block;
-  margin: 0 auto;
-  max-width: 90%; /* voorkomt dat logo breder wordt dan scherm */
-  height: auto;    /* laat hoogte automatisch mee schalen */
-  max-height: 350px; /* voorkomt te grote header op laptop */
-  /* Verschuiving */
-  position: relative; /* nodig voor transform */
-  left: -500px;   /* naar links */
-  top: 20px;     /* naar beneden */
+  position: absolute;
+  left: 15%;       /* 25% van schermbreedte */
+  top: -40px;      /* iets naar boven */
+  max-width: 30%;
+  height: auto;
+  max-height: 350px;
 }
 
-/* Optioneel: specifieke mobiele aanpassing */
-@media (max-width: 600px) {
-  header .logo {
-    height: 150px; /* kleiner logo op mobiel */
-  }
-}
-
+/* Main content */
 main {
-  padding: 40px 20px;
+  flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 40px 20px;
 }
 
+/* Hero section */
 .hero-section {
   display: flex;
-  justify-content: center;
   align-items: center;
   gap: 40px;
   flex-wrap: wrap;
 }
 
 .hero-section img.hero {
-  height: auto;
-  max-height: 350px; /* houdt afbeelding groot */
+  max-height: 350px;
   width: auto;
   border-radius: 8px;
   object-fit: cover;
 }
 
 .hero-section div {
+  max-width: 450px;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* tekst verticaal centreren */
-  max-width: 500px; /* breder tekstblok, bijna even breed als afbeelding */
+  justify-content: center;
 }
 
 .hero-section p {
@@ -72,6 +70,7 @@ main {
   line-height: 1.5em;
 }
 
+/* Footer */
 footer {
   background-color: #333;
   color: white;
@@ -88,4 +87,33 @@ footer a {
 
 footer a:hover {
   text-decoration: underline;
+}
+
+/* Responsief */
+@media (max-width: 800px) {
+  header .logo {
+    left: 10%;      /* minder naar links op kleine schermen */
+    max-width: 50%; /* past op mobiel */
+    max-height: 200px;
+  }
+
+  .hero-section div {
+    max-width: 90%; /* tekst breder op mobiel */
+  }
+
+  .hero-section img.hero {
+    max-height: 200px;
+  }
+}
+
+@media (max-width: 600px) {
+  header .logo {
+    max-width: 70%;
+    max-height: 150px;
+  }
+
+  .hero-section {
+    flex-direction: column;
+    gap: 20px;
+  }
 }
