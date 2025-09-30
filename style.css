@@ -89,6 +89,14 @@ footer a:hover {
   text-decoration: underline;
 }
 
+/* Desktop / laptop: naast elkaar */
+footer .contact-info {
+  display: flex;
+  justify-content: center;
+  gap: 10px; /* ruimte tussen telefoon en e-mail */
+  flex-wrap: wrap; /* zorgt dat ze naar onder gaan bij smalle schermen */
+}
+
 /* Tablet */
 @media (max-width: 800px) {
   header .logo {
@@ -137,5 +145,11 @@ footer a:hover {
   .hero-section p {
     font-size: 1.1em;
     line-height: 1.6em;
+  }
+
+  /* Mobiel: onder elkaar */
+  footer .contact-info {
+    flex-direction: column;
+    gap: 5px; /* minder ruimte tussen de regels */
   }
 }
