@@ -107,33 +107,38 @@ footer a:hover {
 }
 
 @media (max-width: 600px) {
+  /* Logo */
   header .logo {
     max-width: 70%;
     max-height: 150px;
   }
 
+  /* Header compacter */
+  header {
+    padding: 10px 0; /* minder witruimte */
+  }
+
+  /* Hero section */
   .hero-section {
     flex-direction: column;
-    gap: 20px;
-  }
-}
-
-/* Mobiele verbeteringen */
-@media (max-width: 600px) {
-  body {
-    font-size: 1.1em; /* iets groter lettertype voor leesbaarheid */
+    gap: 20px; /* minder ruimte tussen foto en tekst */
   }
 
-  header {
-    padding: 10px 0; /* minder witruimte in de header */
+  .hero-section img.hero {
+    max-height: 200px;
   }
 
-  .hero-section {
-    gap: 20px; /* minder ruimte tussen afbeelding en tekst */
+  .hero-section div {
+    max-width: 90%; /* tekst breder op mobiel */
   }
 
   .hero-section p {
-    font-size: 1em; /* net wat groter voor mobiel */
-    line-height: 1.6em; /* prettiger lezen op klein scherm */
+    font-size: 1.1em; /* duidelijker leesbaar */
+    line-height: 1.6em;
+  }
+
+  /* Algemeen lettertype */
+  body {
+    font-size: 1.1em;
   }
 }
