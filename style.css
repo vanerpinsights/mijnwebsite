@@ -27,10 +27,21 @@ header {
 }
 
 header .logo {
+  /*
   display: inline-block;
   max-width: 30%;
   height: auto;
   max-height: 150px;
+  margin: 20px auto;
+  */
+
+  display: inline-block;
+  position: absolute;
+  left: 25%;      /* 20% van schermbreedte */
+  top: -20%;      /* iets naar boven */
+  max-width: 30%;
+  height: auto;
+  max-height: 350px;
   margin: 20px auto;
 }
 
