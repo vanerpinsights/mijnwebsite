@@ -11,7 +11,7 @@ html, body {
 body {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: 100%;
 }
 
 /* Header */
@@ -22,16 +22,16 @@ header {
   background-size: cover;
   background-position: center;
   position: relative;
-  min-height: 250px; /* zorgt dat header groot genoeg is voor logo en afbeelding */
+  min-height: 250px; /* kleiner zodat logo + achtergrond passen */
+  text-align: center;
 }
 
 header .logo {
-  position: absolute;
-  left: 20%;       /* 20% van schermbreedte */
-  top: -20px;      /* iets naar boven */
+  display: inline-block;
   max-width: 30%;
   height: auto;
-  max-height: 350px;
+  max-height: 150px;
+  margin: 20px auto;
 }
 
 /* Main content */
@@ -59,7 +59,7 @@ main {
 }
 
 .hero-section div {
-  max-width: 450px;
+  max-width: 350px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -89,16 +89,15 @@ footer a:hover {
   text-decoration: underline;
 }
 
-/* Responsief */
+/* Tablet */
 @media (max-width: 800px) {
   header .logo {
-    left: 10%;      /* minder naar links op kleine schermen */
-    max-width: 50%; /* past op mobiel */
+    max-width: 50%;
     max-height: 200px;
   }
 
   .hero-section div {
-    max-width: 90%; /* tekst breder op mobiel */
+    max-width: 90%;
   }
 
   .hero-section img.hero {
@@ -106,22 +105,25 @@ footer a:hover {
   }
 }
 
+/* Mobiel */
 @media (max-width: 600px) {
-  /* Logo */
-  header .logo {
-    max-width: 70%;
-    max-height: 150px;
+  body {
+    font-size: 1.1em; /* groter lettertype voor mobiel */
   }
 
-  /* Header compacter */
   header {
     padding: 10px 0; /* minder witruimte */
   }
 
-  /* Hero section */
+  header .logo {
+    max-width: 70%;
+    max-height: 150px;
+    margin: 10px auto;
+  }
+
   .hero-section {
     flex-direction: column;
-    gap: 20px; /* minder ruimte tussen foto en tekst */
+    gap: 20px; /* minder ruimte */
   }
 
   .hero-section img.hero {
@@ -129,16 +131,11 @@ footer a:hover {
   }
 
   .hero-section div {
-    max-width: 90%; /* tekst breder op mobiel */
+    max-width: 95%; /* tekstblok bijna volle breedte */
   }
 
   .hero-section p {
-    font-size: 1.1em; /* duidelijker leesbaar */
-    line-height: 1.6em;
-  }
-
-  /* Algemeen lettertype */
-  body {
     font-size: 1.1em;
+    line-height: 1.6em;
   }
 }
