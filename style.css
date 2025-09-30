@@ -1,6 +1,5 @@
 /* Basis setup */
 html, body {
-  height: 100%;
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
@@ -14,69 +13,57 @@ body {
   min-height: 100%;
 }
 
-/* Header */
-header {
-  background-color: #3BAF78;
+/* Header met achtergrond */
+.header {
   background-image: url('Achtergrond.png');
-  background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  position: relative;
-  min-height: 250px; /* kleiner zodat logo + achtergrond passen */
-  text-align: center;
-}
-
-header .logo {
-  /*
-  display: inline-block;
-  max-width: 30%;
-  height: auto;
-  max-height: 150px;
-  margin: 20px auto;
-  */
-
-  display: inline-block;
-  position: absolute;
-  left: 25%;      /* 20% van schermbreedte */
-  top: -20%;      /* iets naar boven */
-  max-width: 30%;
-  height: auto;
-  max-height: 350px;
-  margin: 20px auto;
-}
-
-/* Main content */
-main {
-  flex: 1;
+  width: 100%;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 40px 20px;
+  justify-content: center; /* center de inner container */
 }
 
-/* Hero section */
+/* Container voor logo zodat het boven hero-afbeelding staat */
+.header-inner {
+  width: 400px; /* zelfde breedte als hero-afbeelding */
+  display: flex;
+  justify-content: flex-start; /* logo aan de linkerkant van container */
+  /* kleine marge om iets naar links te verschuiven, niet buiten beeld */
+  margin-left: -30%; /* pas waarde aan om exact uit te lijnen */
+}
+
+/* Logo */
+.logo {
+  max-width: 350px;
+  height: auto;
+}
+
+/* Hero-sectie */
 .hero-section {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 40px;
-  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
 }
 
-.hero-section img.hero {
+.hero {
   max-height: 350px;
   width: auto;
+  max-width: 400px;
   border-radius: 8px;
   object-fit: cover;
 }
 
-.hero-section div {
-  max-width: 350px;
+.hero-text {
+  max-width: 500px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  text-align: center;
 }
 
-.hero-section p {
+.hero-text p {
   font-size: 1.1em;
   line-height: 1.5em;
 }
@@ -93,74 +80,110 @@ footer {
 footer a {
   color: #ffffff;
   text-decoration: none;
-  margin: 0 5px;
+  margin: 0 2px;
 }
 
 footer a:hover {
   text-decoration: underline;
 }
 
-/* Desktop / laptop: naast elkaar */
 footer .contact-info {
   display: flex;
   justify-content: center;
-  gap: 10px; /* ruimte tussen telefoon en e-mail */
-  flex-wrap: wrap; /* zorgt dat ze naar onder gaan bij smalle schermen */
+  gap: 5px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+footer .separator {
+  display: inline;
+  margin: 0 5px;
+}
+
+/* Fade-in animaties */
+.fade-in-logo {
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: fadeInLogo 1s forwards;
+}
+
+.fade-in-hero {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInHero 1s forwards 0.5s;
+}
+
+@keyframes fadeInLogo {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInHero {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Desktop: afbeelding links, tekst rechts */
+@media (min-width: 801px) {
+  .hero-section {
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: center;
+    gap: 40px;
+  }
+  .hero-text {
+    text-align: left;
+    align-items: flex-start;
+  }
 }
 
 /* Tablet */
 @media (max-width: 800px) {
-  header .logo {
-    max-width: 50%;
-    max-height: 200px;
+  .header-inner {
+    margin-left: -15%; /* minder verschuiving op tablet */
+    width: 250px;
   }
-
-  .hero-section div {
+  .hero-section img.hero {
+    max-height: 250px;
+  }
+  .hero-text {
     max-width: 90%;
   }
-
-  .hero-section img.hero {
-    max-height: 200px;
+  .header-inner {
+    width: 250px;
+  }
+  .logo {
+    max-width: 150px;
   }
 }
 
 /* Mobiel */
 @media (max-width: 600px) {
-  body {
-    font-size: 1.1em; /* groter lettertype voor mobiel */
+  .header-inner {
+    margin-left: -10%; /* subtiele verschuiving mobiel */
+    width: 200px;
   }
-
-  header {
-    padding: 10px 0; /* minder witruimte */
-  }
-
-  header .logo {
-    max-width: 70%;
-    max-height: 150px;
-    margin: 10px auto;
-  }
-
   .hero-section {
     flex-direction: column;
-    gap: 20px; /* minder ruimte */
+    align-items: center;
   }
-
+  .hero-text {
+    max-width: 95%;
+    text-align: center;
+    align-items: center;
+  }
   .hero-section img.hero {
     max-height: 200px;
   }
-
-  .hero-section div {
-    max-width: 95%; /* tekstblok bijna volle breedte */
+  .header-inner {
+    width: 200px;
   }
-
-  .hero-section p {
-    font-size: 1.1em;
-    line-height: 1.6em;
+  .logo {
+    max-width: 120px;
   }
-
-  /* Mobiel: onder elkaar */
   footer .contact-info {
     flex-direction: column;
-    gap: 5px; /* minder ruimte tussen de regels */
+    gap: 5px;
+  }
+  footer .separator {
+    display: none;
   }
 }
