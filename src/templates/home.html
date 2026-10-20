@@ -1,0 +1,78 @@
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <h1>Wim van Erp</h1>
+          <p class="lead">{{lead}}</p>
+          <p>{{intro}}</p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="{{booking_href}}"{{{booking_target}}}>{{cta_booking}}</a>
+            <a class="btn btn-ghost" href="mailto:{{email}}">{{cta_mail}}</a>
+          </div>
+          <p class="cta-alt"><a href="tel:{{phone_intl}}">{{cta_call}}</a></p>
+        </div>
+
+        <figure class="hero-photo">
+          <svg class="rays" viewBox="0 0 200 200" aria-hidden="true">
+            <circle cx="40" cy="100" r="22"/>
+            <g stroke-linecap="round" stroke-width="7">
+              <line x1="76" y1="72" x2="130" y2="40"/>
+              <line x1="80" y1="88" x2="160" y2="70"/>
+              <line x1="82" y1="104" x2="176" y2="104"/>
+              <line x1="80" y1="120" x2="160" y2="138"/>
+              <line x1="76" y1="136" x2="130" y2="166"/>
+            </g>
+          </svg>
+          <picture>
+            <source type="image/webp" srcset="/assets/img/wim-800.webp 800w, /assets/img/wim-1400.webp 1400w" sizes="(min-width: 900px) 560px, 92vw">
+            <img src="/assets/img/wim-800.jpg" srcset="/assets/img/wim-800.jpg 800w, /assets/img/wim-1400.jpg 1400w" sizes="(min-width: 900px) 560px, 92vw" width="800" height="556" alt="{{photo_alt}}" fetchpriority="high">
+          </picture>
+        </figure>
+      </div>
+    </section>
+
+    <section class="services" aria-labelledby="services-title">
+      <div class="wrap">
+        <h2 id="services-title">{{services_title}}</h2>
+
+        <div class="service-feature">
+          <div>
+            <h3>Salesforce</h3>
+            <p>{{sf_text}}</p>
+          </div>
+          <div>
+            <p class="chip-label">{{sf_list_label}}</p>
+            <ul class="chips">
+              <li>{{sf_apex}}</li>
+              <li>Flow</li>
+              <li>Sales Cloud</li>
+              <li>Service Cloud</li>
+              <li>Marketing Cloud</li>
+              <li>Data 360</li>
+              <li>Hubbl</li>
+              <li>Copado</li>
+            </ul>
+          </div>
+        </div>
+
+        <ul class="service-list">
+          <li>
+            <h3>{{ai_title}}</h3>
+            <p>{{ai_text}}</p>
+            <ul class="chips chips-small">
+              <li>Claude</li>
+              <li>Claude Code</li>
+              <li>Gemini</li>
+            </ul>
+          </li>
+          <li>
+            <h3>{{sap_title}}</h3>
+            <p>{{sap_text}}</p>
+          </li>
+          <li>
+            <h3>{{office_title}}</h3>
+            <p>{{office_text}}</p>
+          </li>
+        </ul>
+        <p class="other">{{other}}</p>
+      </div>
+    </section>

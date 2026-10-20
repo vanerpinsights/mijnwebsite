@@ -1,0 +1,383 @@
+/* ---------- Lettertypes (lokaal gehost: sneller en AVG-vriendelijk) ---------- */
+@font-face {
+  font-family: "Bricolage Grotesque";
+  src: url("fonts/bricolage-grotesque.woff2") format("woff2");
+  font-weight: 200 800;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("fonts/figtree.woff2") format("woff2");
+  font-weight: 300 900;
+  font-display: swap;
+}
+
+/* ---------- Kleuren en maten ---------- */
+:root {
+  --navy: #002140;      /* letters in het logo */
+  --ray: #199EE5;       /* stralen in het logo */
+  --mist: #E4F0EE;      /* uit de oude achtergrond */
+  --mist-deep: #CFE3E6;
+  --paper: #F8FBFB;
+  --ink: #16222D;
+  --muted: #4A5866;
+  --line: rgba(0, 33, 64, 0.14);
+
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Figtree", "Segoe UI", system-ui, sans-serif;
+  --wrap: 1120px;
+  --gutter: clamp(16px, 4vw, 40px);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--paper);
+}
+
+img, svg { display: block; max-width: 100%; height: auto; }
+
+a { color: var(--navy); text-underline-offset: 3px; }
+
+:focus-visible {
+  outline: 3px solid var(--ray);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.wrap {
+  max-width: var(--wrap);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.skip-link {
+  position: absolute;
+  left: 12px;
+  top: -60px;
+  background: var(--navy);
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: 8px;
+  z-index: 10;
+}
+.skip-link:focus { top: 12px; }
+
+/* ---------- Header + hero: één zachte band, een knipoog naar de oude golvende achtergrond ---------- */
+.site-header,
+.hero {
+  background-color: var(--mist);
+  background-image:
+    radial-gradient(120% 90% at 105% -10%, #F3F8F8 0 38%, transparent 38.5%),
+    radial-gradient(90% 120% at -20% 110%, var(--mist-deep) 0 40%, transparent 40.5%),
+    radial-gradient(70% 60% at 40% 130%, #DCEBEC 0 45%, transparent 45.5%);
+  background-attachment: scroll;
+}
+.site-header { background-size: 100% 220%; background-position: top; }
+.hero { background-size: 100% 145%; background-position: bottom; }
+
+.header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.brand { flex-shrink: 1; min-width: 0; }
+.logo { width: clamp(150px, 22vw, 230px); }
+
+.header-tools {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Taalknoppen */
+.lang-switch {
+  display: flex;
+  gap: 2px;
+  padding: 3px;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+}
+
+.lang-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 36px;
+  padding: 4px 10px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted);
+  font: 600 0.8125rem/1 var(--font-body);
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+.lang-btn:hover { background: #fff; color: var(--navy); }
+.lang-btn { text-decoration: none; }
+.lang-btn[aria-current="true"] {
+  background: var(--navy);
+  color: #fff;
+}
+.flag {
+  width: 20px;
+  height: 14px;
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.12);
+}
+.lang-btn svg.flag { width: 20px; height: 14px; }
+
+/* LinkedIn-knop */
+.linkedin-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 42px;
+  padding: 0 14px;
+  border-radius: 999px;
+  background: #0A66C2;
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  text-decoration: none;
+  transition: background-color 0.2s;
+}
+.linkedin-btn:hover { background: #004182; }
+.linkedin-btn svg { width: 18px; height: 18px; }
+
+/* ---------- Hero ---------- */
+.hero { padding: clamp(24px, 5vw, 64px) 0 clamp(56px, 8vw, 104px); }
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(32px, 5vw, 64px);
+  align-items: center;
+}
+
+.hero-copy { max-width: 38rem; }
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  color: var(--navy);
+  line-height: 1.05;
+  margin: 0;
+}
+
+h1 {
+  font-size: clamp(2.75rem, 7.5vw, 5.25rem);
+  font-weight: 750;
+  letter-spacing: -0.035em;
+  font-variation-settings: "wdth" 85;
+}
+
+.lead {
+  font-size: clamp(1.25rem, 2.2vw, 1.5rem);
+  line-height: 1.4;
+  color: var(--navy);
+  margin: 0.75em 0 0.6em;
+}
+
+.hero-copy p:not(.lead) { color: var(--muted); margin: 0; }
+
+.cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 20px;
+  border-radius: 12px;
+  font-weight: 650;
+  text-decoration: none;
+  transition: background-color 0.2s, border-color 0.2s, transform 0.15s;
+}
+.cta-alt { margin: 14px 0 0 !important; }
+.cta-alt a { color: var(--navy); font-weight: 600; }
+.btn:active { transform: translateY(1px); }
+.btn-primary { background: var(--navy); color: #fff; }
+.btn-primary:hover { background: #0B3A66; }
+.btn-ghost { border: 1.5px solid var(--navy); color: var(--navy); background: rgba(255,255,255,0.5); }
+.btn-ghost:hover { background: #fff; }
+
+/* Foto met de stralen uit het logo: het ene opvallende element */
+.hero-photo {
+  position: relative;
+  margin: 0;
+  padding-left: clamp(40px, 9vw, 96px);
+}
+.hero-photo img {
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 24px 48px -24px rgba(0, 33, 64, 0.45);
+}
+.rays {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: clamp(80px, 17vw, 190px);
+  transform: translate(-28%, -50%);
+  z-index: 1;
+  overflow: visible;
+}
+.rays circle { fill: var(--ray); }
+.rays line {
+  stroke: var(--ray);
+  stroke-dasharray: 100;
+  stroke-dashoffset: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .rays circle { animation: pop 0.5s ease-out both; }
+  .rays line { animation: beam 0.7s ease-out both; }
+  .rays line:nth-child(1) { animation-delay: 0.25s; }
+  .rays line:nth-child(2) { animation-delay: 0.32s; }
+  .rays line:nth-child(3) { animation-delay: 0.39s; }
+  .rays line:nth-child(4) { animation-delay: 0.46s; }
+  .rays line:nth-child(5) { animation-delay: 0.53s; }
+}
+@keyframes pop { from { transform: scale(0.4); opacity: 0; } }
+@keyframes beam { from { stroke-dashoffset: 100; } }
+.rays circle { transform-origin: 40px 100px; }
+
+/* ---------- Diensten ---------- */
+.services { padding: clamp(56px, 8vw, 104px) 0; }
+
+h2 {
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 32px;
+}
+
+.service-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+}
+.service-list > li {
+  border-top: 2px solid var(--navy);
+  padding-top: 18px;
+}
+.service-list h3 {
+  font-size: 1.375rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.service-list p { margin: 0; color: var(--muted); max-width: 34ch; }
+
+/* Salesforce: het hoofdvak, breder en met concrete onderdelen */
+.service-feature {
+  display: grid;
+  gap: 20px;
+  border-top: 2px solid var(--navy);
+  padding-top: 18px;
+  margin-bottom: 48px;
+}
+.service-feature h3 { font-size: clamp(1.625rem, 3vw, 2rem); font-weight: 700; margin-bottom: 10px; }
+.service-feature p { margin: 0; color: var(--muted); max-width: 40ch; }
+.service-feature .chip-label { color: var(--navy); font-weight: 600; margin-bottom: 12px; }
+
+.chips {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.chips li {
+  padding: 7px 14px;
+  border-radius: 999px;
+  background: var(--mist);
+  border: 1px solid var(--line);
+  color: var(--navy);
+  font-weight: 600;
+  font-size: 0.9375rem;
+  line-height: 1.3;
+}
+.chips-small { margin-top: 14px; }
+.chips-small li { padding: 5px 11px; font-size: 0.875rem; }
+
+.other {
+  margin: 48px 0 0;
+  max-width: 44rem;
+  font-size: 1.1875rem;
+  color: var(--navy);
+}
+
+/* ---------- Privacyverklaring ---------- */
+.prose-page { padding: clamp(32px, 6vw, 72px) 0 clamp(56px, 8vw, 96px); }
+.prose { max-width: calc(42rem + 2 * var(--gutter)); }
+.prose h1 { font-size: clamp(2.25rem, 5vw, 3.25rem); letter-spacing: -0.03em; margin-bottom: 8px; white-space: normal; }
+.prose h2 { font-size: 1.375rem; margin: 2em 0 0.4em; }
+.prose p { margin: 0 0 1em; }
+.prose .updated { color: var(--muted); font-size: 0.9375rem; margin-bottom: 2em; }
+.prose .back { margin-top: 2.5em; }
+
+/* ---------- 404 ---------- */
+.not-found { min-height: 55vh; }
+.not-found .wrap { max-width: calc(40rem + 2 * var(--gutter)); }
+.rays-static { position: static; transform: none; width: 120px; margin: 0 0 8px -12px; }
+.rays-static line, .rays-static circle { animation: none !important; }
+
+/* ---------- Footer ---------- */
+.site-footer {
+  background: var(--navy);
+  color: #DCE6EF;
+  padding: clamp(40px, 6vw, 64px) 0;
+}
+.site-footer h2 { color: #fff; font-size: 1.5rem; margin-bottom: 16px; }
+.site-footer a { color: #fff; }
+.site-footer a:hover { color: #9FD6F5; }
+.site-footer :focus-visible { outline-color: #9FD6F5; }
+
+.footer-grid {
+  display: grid;
+  gap: 32px;
+}
+.contact-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.contact-list span { display: inline-block; min-width: 6.5em; color: #A9BACB; }
+.legal p { margin: 0 0 4px; color: #A9BACB; font-size: 0.9375rem; }
+
+/* ---------- Grotere schermen ---------- */
+@media (min-width: 900px) {
+  .hero-grid { grid-template-columns: 1.05fr 1fr; }
+  h1 { white-space: nowrap; font-size: clamp(3.25rem, 5.6vw, 4.75rem); }
+  .service-list { grid-template-columns: repeat(3, 1fr); gap: 40px; }
+  .service-feature { grid-template-columns: 1fr 1.3fr; gap: 40px; }
+  .footer-grid { grid-template-columns: 1fr auto; align-items: end; }
+  .legal { text-align: right; }
+}
+
+/* ---------- Kleine schermen ---------- */
+@media (max-width: 560px) {
+  .header-bar { flex-wrap: wrap; row-gap: 12px; }
+  .linkedin-btn span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .linkedin-btn { width: 42px; padding: 0; justify-content: center; }
+  .lang-btn { padding: 4px 8px; }
+  .cta-row .btn { flex: 1 1 100%; }
+  .contact-list span { display: block; min-width: 0; font-size: 0.875rem; }
+}
