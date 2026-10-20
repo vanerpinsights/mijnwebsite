@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="{{lang}}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{page_title}}</title>
+  <meta name="description" content="{{page_description}}">
+  <meta name="theme-color" content="#002140">
+  {{{robots_meta}}}
+  <link rel="canonical" href="{{canonical}}">
+  {{{hreflang_links}}}
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{canonical}}">
+  <meta property="og:title" content="{{page_title}}">
+  <meta property="og:description" content="{{og_description}}">
+  <meta property="og:image" content="{{base_url}}/assets/img/wim-1400.jpg">
+  <meta property="og:locale" content="{{_locale}}">
+
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="preload" href="/assets/fonts/bricolage-grotesque.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/figtree.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/style.css?v={{build_id}}">
+  {{{head_extra}}}
+  {{{analytics}}}
+</head>
+<body class="page-{{page_id}}">
+  <a class="skip-link" href="#main">{{skip}}</a>
+
+  <header class="site-header">
+    <div class="wrap header-bar">
+      <a href="{{home_url}}" class="brand" aria-label="{{home_aria}}">
+        <picture>
+          <source srcset="/assets/img/logo.webp" type="image/webp">
+          <img src="/assets/img/logo.png" alt="Van Erp Insights" width="640" height="207" class="logo">
+        </picture>
+      </a>
+
+      <div class="header-tools">
+        <nav class="lang-switch" aria-label="{{lang_group}}">
+          {{{lang_switch}}}
+        </nav>
+
+        <a class="linkedin-btn" href="{{linkedin}}" target="_blank" rel="noopener" aria-label="{{linkedin_aria}}">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+          <span>LinkedIn</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+{{{content}}}
+  </main>
+
+  <footer class="site-footer" id="contact">
+    <div class="wrap footer-grid">
+      <div>
+        <h2>{{contact_title}}</h2>
+        <ul class="contact-list">
+          <li><span>{{phone}}</span> <a href="tel:{{phone_intl}}">{{phone_display}}</a></li>
+          <li><span>{{email_label}}</span> <a href="mailto:{{email}}">{{email}}</a></li>
+          <li><span>LinkedIn</span> <a href="{{linkedin}}" target="_blank" rel="noopener">linkedin.com/in/wimvanerp</a></li>
+        </ul>
+      </div>
+      <div class="legal">
+        <p>&copy; <span id="year">{{year}}</span> Van Erp Insights</p>
+        <p>{{kvk}} {{kvk_number}}</p>
+        <p><a href="{{privacy_url}}">{{privacy_link}}</a></p>
+      </div>
+    </div>
+  </footer>
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>

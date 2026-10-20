@@ -1,0 +1,17 @@
+{
+  "base_url": "https://vanerpinsights.nl",
+  "email": "info@vanerpinsights.nl",
+  "phone_display": "06-14772990",
+  "phone_intl": "+31614772990",
+  "linkedin": "https://www.linkedin.com/in/wimvanerp/",
+  "kvk": "98390982",
+
+  "booking_url": "",
+  "booking_service": "Google Agenda",
+
+  "plausible_domain": "",
+
+  "languages": ["nl", "en", "de"],
+  "default_language": "nl",
+  "privacy_updated": "2026-10-20"
+}
